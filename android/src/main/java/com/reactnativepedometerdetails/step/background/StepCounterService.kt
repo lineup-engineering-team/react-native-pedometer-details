@@ -121,7 +121,7 @@ class StepCounterService : Service(), SensorEventListener, TextToSpeech.OnInitLi
         registerMyAlarmBroadcast()
 
         // set alarm to repeat every day (as in every 24 hours, which should be every day immediately after midnight)
-        midnightAlarmManager?.setRepeating(AlarmManager.RTC, midnightAlarmTime, AlarmManager.INTERVAL_DAY, myPendingIntent)
+        midnightAlarmManager?.setRepeating(AlarmManager.RTC, midnightAlarmTime, AlarmManager.INTERVAL_DAY, myPendingIntent!!)
     }
 
 
@@ -177,7 +177,7 @@ class StepCounterService : Service(), SensorEventListener, TextToSpeech.OnInitLi
     }
 
     private fun UnregisterAlarmBroadcast() {
-        midnightAlarmManager?.cancel(myPendingIntent)
+        midnightAlarmManager?.cancel(myPendingIntent!!)
         baseContext.unregisterReceiver(myBroadcastReceiver)
     }
 
